@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Femina • Girls Clothing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{--accent:#3db5ff;--muted:#6c757d}
+    body{font-family:Inter, system-ui, Arial, sans-serif;background:#f6f7fb;color:#1f2937}
+    .hero{background:linear-gradient(180deg,#ffffff 0%, #f7f9fc 100%);border-radius:14px;padding:36px}
+    .hero-title{font-size:32px;font-weight:700;color:#0f1724}
+    .hero-cta{background:linear-gradient(90deg,var(--accent),#6dd5fa);border:none;padding:10px 20px;border-radius:999px;color:white}
+    .product-card{background:white;border-radius:12px;padding:12px;box-shadow:0 8px 20px rgba(13,38,59,0.06)}
+    .product-img{height:220px;object-fit:cover;border-radius:8px}
+    .product-thumb{height:80px;object-fit:cover;border-radius:6px}
+    .filter-pill{background:white;padding:6px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(13,38,59,0.04)}
+    footer{color:#94a3b8}
+    .small-muted{color:var(--muted)}
+    @media(max-width:991px){.hero-title{font-size:24px}.product-img{height:180px}}
+    .badge-sale{background:#e9f6ff;color:var(--accent);padding:6px 10px;border-radius:8px;font-weight:600}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-3">
+    <div class="container">
+      <a class="navbar-brand fs-1 fw-bold" href="#" id="nav-logo">Femina</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item me-3"><a href="#" class="nav-link nav-link-route" data-target="home">Home</a></li>
+          <li class="nav-item me-3"><a href="#" class="nav-link nav-link-route" data-target="shop">Shop</a></li>
+          <li class="nav-item me-3"><a href="#" class="nav-link nav-link-route" data-target="categories">Categories</a></li>
+          <li class="nav-item me-3"><a href="#" class="nav-link nav-link-route" data-target="winter">Winter</a></li>
+          <li class="nav-item me-3"><a href="#" class="nav-link nav-link-route" data-target="blog">Blog</a></li>
+          <li class="nav-item">
+            <a href="#" class="nav-link position-relative" id="nav-cart-btn" data-target="cart">
+              🛒 <span id="cart-count" class="badge bg-danger ms-1">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER (All sections inside; we hide/show via JS) -->
+  <main class="container my-4">
+
+    <!-- HOME SECTION -->
+    <section id="home" class="section">
+      <div class="row gx-4">
+        <div class="col-lg-8">
+          <div class="hero d-flex gap-4 align-items-center">
+            <div class="flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-2"><span class="badge-sale">30% OFF</span><small class="small-muted">All products</small></div>
+              <h1 class="hero-title">Fashion create good lifestyle</h1>
+              <p class="small-muted">A world-class trendy fashion collection — curated women's wear for everyday style.</p>
+              <div class="mt-3">
+                <button class="hero-cta me-2" onclick="routeTo('shop')">Shop Now</button>
+                <a href="#" class="text-decoration-none small-muted nav-link-route" data-target="categories">Explore Collection</a>
+              </div>
+
+              <div class="mt-4 rounded p-3" style="background:linear-gradient(135deg,#cdd0d8 0%, #d496c5 100%);color:white;border-radius:12px">
+                <h5 class="mb-3">Trending Fashion 🔥</h5>
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img src="https://www.dressyzone.com/cdn/shop/files/p15630-embroidered-lawn-dress-update_2048x.jpg?v=1747219730" class="img-fluid rounded mb-2" style="height:100px;object-fit:cover" alt="">
+                      <div class="small">Woman Black Dress</div>
+                      <div class="fw-bold">$29.99</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img src="https://i.etsystatic.com/6877362/r/il/30bb45/1717950657/il_570xN.1717950657_q40h.jpg" class="img-fluid rounded mb-2" style="height:100px;object-fit:cover" alt="">
+                      <div class="small">Woman Black Scarf</div>
+                      <div class="fw-bold">$19.99</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="text-center">
+                      <img src="https://static-01.daraz.pk/p/a7ae8b123d536d05fab5b9199b43d0e2.jpg" class="img-fluid rounded mb-2" style="height:100px;object-fit:cover" alt="">
+                      <div class="small">Woman T-Shirt </div>
+                      <div class="fw-bold">$22.50</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div style="width:320px">
+              <div class="card p-2" style="border-radius:12px;box-shadow:0 10px 30px rgba(13,38,59,0.06)">
+                <!-- hero image -->
+                <img src="https://d1fufvy4xao6k9.cloudfront.net/images/blog/posts/2023/08/hockerty_business_casual_outfits_for_woman_013a099b_0b8b_43a2_886f_754716f88f1a.jpg" class="img-fluid rounded" style="height:340px;object-fit:cover" alt="Model">
+              </div>
+            </div>
+          </div>
+
+          <!-- featured -> small grid -->
+          <section class="mt-5">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="card p-3 product-card text-center">
+                  <img src="https://i.pinimg.com/474x/7b/b2/2a/7bb22af1f0c790a2c1b36ca043488d35.jpg" class="img-fluid rounded mb-2" style="height:160px;object-fit:cover" alt="">
+                  <div class="fw-semibold">Winter Collections</div>
+                  <div class="small-muted">$30 - $80</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card p-3 product-card text-center">
+                  <img src="https://i.pinimg.com/236x/e6/f7/53/e6f7534127815cc3d49bae960c3abd76.jpg" class="img-fluid rounded mb-2" style="height:160px;object-fit:cover" alt="">
+                  <div class="fw-semibold">Women Collections</div>
+                  <div class="small-muted">Up to 30% Off</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card p-3 product-card text-center">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qFpXtQ09Of2Oj7ihBxZVTsRhHfS___gl9Q&s" class="img-fluid rounded mb-2" style="height:160px;object-fit:cover" alt="">
+                  <div class="fw-semibold">New Arrivals</div>
+                  <div class="small-muted">Trending Now</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <aside>
+            <div class="card p-3 mb-4">
+              <h6 class="mb-2">Filters</h6>
+              <div class="mb-2">
+                <label class="form-label small">Category</label>
+                <select id="filter-cat" class="form-select form-select-sm">
+                  <option value="">All</option>
+                  <option value="dress">Dresses</option>
+                  <option value="top">Tops</option>
+                  <option value="kurtis">Kurtis</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label small">Max price: <span id="price-val">100</span>$</label>
+                <input type="range" id="price-range" min="10" max="100" value="100" class="form-range">
+              </div>
+            </div>
+
+            <div class="card p-3 mb-4">
+              <h6 class="mb-3">Recommended</h6>
+              <div class="d-flex gap-2 mb-2 align-items-center">
+                <img src="https://www.acecart.pk/cdn/shop/files/27f6392f7bfe3905fa66655434c33acd.jpg?v=1713565897" width="64" height="64" style="object-fit:cover;border-radius:8px">
+                <div>
+                  <div class="fw-semibold">Denim Jacket</div>
+                  <div class="small-muted">$49.99</div>
+                </div>
+              </div>
+              <div class="d-flex gap-2 align-items-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzYwGBnAqefeBzRH7BOmhKrN9GeTmN7GRSlw&s" width="64" height="64" style="object-fit:cover;border-radius:8px">
+                <div>
+                  <div class="fw-semibold">Maxi Dress</div>
+                  <div class="small-muted">$39.50</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card p-3 text-center">
+              <h6>Newsletter</h6>
+              <p class="small-muted">Get 10% off your first order</p>
+              <div class="input-group">
+                <input class="form-control form-control-sm" placeholder="Your email">
+                <button class="btn btn-primary btn-sm">Subscribe</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <!-- END HOME -->
+
+    <!-- SHOP / PRODUCTS SECTION -->
+    <section id="shop" class="section" style="display:none;">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Our Products</h3>
+        <div class="d-flex gap-2">
+          <div class="filter-pill p-2">Featured</div>
+          <div class="filter-pill p-2">Best Sellers</div>
+          <div class="filter-pill p-2">New</div>
+        </div>
+      </div>
+      <div id="product-list" class="row g-4"></div>
+    </section>
+
+    <!-- PRODUCT DETAILS -->
+    <section id="product-details" class="section" style="display:none;">
+      <div id="product-detail-content"></div>
+    </section>
+
+    <!-- CART -->
+    <section id="cart" class="section" style="display:none;">
+      <h3>Your Cart</h3>
+      <div id="cart-area"></div>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section id="checkout" class="section" style="display:none;">
+      <h3>Checkout</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <form id="order-form">
+            <div class="mb-3">
+              <label class="form-label">Full name</label>
+              <input required class="form-control" id="cust-name" />
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input required class="form-control" id="cust-Email" />
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label">Address</label>
+              <textarea required id="cust-address" class="form-control" rows="2"></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Phone</label>
+              <input required id="cust-phone" class="form-control"/>
+            </div>
+              <div class="mb-3">
+              <label class="form-label">Phone 2</label>
+              <input required id="cust-phone" class="form-control"/>
+            </div>
+
+            <h6 class="mt-3">Payment Method</h6>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="pay-cod" value="cod" checked>
+              <label class="form-check-label" for="pay-cod">Cash On Delivery (COD)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="pay-card" value="card">
+              <label class="form-check-label" for="pay-card">Card Payment (Mock)</label>
+            </div>
+
+            <div id="card-fields" style="display:none;margin-top:12px;">
+              <div class="mb-2">
+                <label class="form-label">Card Number</label>
+                <input id="card-number" class="form-control" placeholder="4242 4242 4242 4242" maxlength="19"/>
+              </div>
+              <div class="row">
+                <div class="col-6 mb-2">
+                  <label class="form-label">Expiry</label>
+                  <input id="card-exp" class="form-control" placeholder="MM/YY"/>
+                </div>
+                <div class="col-6 mb-2">
+                  <label class="form-label">CVC</label>
+                  <input id="card-cvc" class="form-control" maxlength="4"/>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-success mt-3" type="submit">Place Order</button>
+          </form>
+        </div>
+
+        <div class="col-md-6">
+          <div id="order-summary" class="card p-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER CONFIRM -->
+    <section id="order-confirm" class="section" style="display:none;">
+      <div class="card p-4 text-center">
+        <h4>Thank you! Your order has been placed.</h4>
+        <p id="order-msg" class="small-muted"></p>
+        <button class="btn btn-primary mt-3" onclick="routeTo('home')">Back to Home</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-4 mt-5 text-center">
+    <div class="container">
+      <div>© 2025 Femina • All Rights Reserved</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /*******************************
+     * Data (women's products only)
+     *******************************/
+    const products = [
+      { id:1, name:"Floral Summer Dress", price:29.99, category:"dress", sizes:["S","M","L"], img:"https://parienhouse.com/cdn/shop/files/ParienFloralDress5.jpg?v=1726076511", desc:"Lightweight floral dress, perfect for sunny days."},
+      { id:2, name:"Chiffon Top", price:19.99, category:"top", sizes:["S","M","L"], img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw01hQuUj3KdgLEox3jW9JY8zpg5xRQf7kXD_-0WKoY2FLgBs2_zYYC5v3HATo8rThwlk&usqp=CAU", desc:"Elegant chiffon top for casual or office wear."},
+      { id:3, name:"Embroidered Kurti", price:34.99, category:"kurtis", sizes:["M","L"], img:"https://img.drz.lazcdn.com/static/pk/p/4ab2d3c781111c9011820482086ec781.png_720x720q80.png", desc:"Traditional embroidered kurti with comfortable fabric."},
+      { id:4, name:"Denim Jacket (Women)", price:49.99, category:"top", sizes:["S","M","L"], img:"https://images-cdn.ubuy.qa/65395d61360f4768c701c9ac-miss-moly-cropped-jean-jacket-women.jpg", desc:"Classic denim jacket to style with dresses or jeans."},
+      { id:5, name:"Maxi Dress - Solid", price:39.50, category:"dress", sizes:["S","M","L"], img:"https://onehub.pk/cdn/shop/files/Modelyn_Womens_Solid_Color_Simple_Daily_Long_Sleeve_Dress_Maxi_Women_Outfit_Long_Evening_Dresses_main_0_420x630.jpg?v=1748257875", desc:"Comfortable maxi for evening or beach."}
+    ];
+
+    /*******************************
+     * Cart helpers (localStorage)
+     *******************************/
+    function getCart(){ return JSON.parse(localStorage.getItem('cart') || '[]'); }
+    function saveCart(cart){ localStorage.setItem('cart', JSON.stringify(cart)); updateCartCount(); }
+    function addToCart(productId, qty=1, size=null){
+      const p = products.find(x=> x.id === productId);
+      if(!p) return alert('Product not found');
+      const cart = getCart();
+      const idx = cart.findIndex(i => i.id === productId && i.size === size);
+      if(idx > -1) cart[idx].qty = (cart[idx].qty||1) + qty;
+      else cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, size: size || p.sizes[0], qty });
+      saveCart(cart);
+      alert('Added to cart');
+    }
+    function updateCartCount(){
+      const c = getCart().reduce((s,i)=> s + (i.qty||1), 0);
+      document.getElementById('cart-count').textContent = c;
+    }
+
+    /*******************************
+     * Routing (show/hide sections)
+     *******************************/
+    const sections = ['home','shop','product-details','cart','checkout','order-confirm','categories','winter','blog'];
+    function showSection(id){
+      sections.forEach(s=>{
+        const el = document.getElementById(s);
+        if(!el) return;
+        el.style.display = (s === id ? '' : 'none');
+      });
+      window.scrollTo(0,0);
+    }
+    function routeTo(target){
+      // if link except logo clicked -> show same layout like shop (the user asked that any link except logo show same details)
+      if(['shop','categories','winter','blog'].includes(target)){
+        // show shop layout (products) but can apply category filter
+        showSection('shop');
+        if(target === 'categories'){
+          document.getElementById('filter-cat').value = '';
+        } else if(target === 'winter'){
+          document.getElementById('filter-cat').value = ''; // you can refine
+        }
+        renderProducts();
+      } else {
+        showSection(target);
+      }
+    }
+
+    // wire nav links
+    document.querySelectorAll('.nav-link-route').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const t = a.getAttribute('data-target');
+        routeTo(t);
+      });
+    });
+    document.getElementById('nav-logo').addEventListener('click', (e)=>{ e.preventDefault(); showSection('home'); });
+
+    /*******************************
+     * Render products grid
+     *******************************/
+    const productListEl = document.getElementById('product-list');
+    function renderProducts(){
+      if(!productListEl) return;
+      const cat = document.getElementById('filter-cat').value;
+      const maxPrice = Number(document.getElementById('price-range').value);
+      document.getElementById('price-val').textContent = maxPrice;
+      productListEl.innerHTML = '';
+      let list = products.filter(p => p.price <= maxPrice);
+      if(cat) list = list.filter(p => p.category === cat);
+      if(list.length === 0){
+        productListEl.innerHTML = '<div class="col-12"><p class="small-muted">No products found.</p></div>';
+        return;
+      }
+      list.forEach(p=>{
+        const col = document.createElement('div'); col.className = 'col-md-4';
+        col.innerHTML = `
+          <div class="product-card h-100">
+            <img src="${p.img}" class="w-100 product-img mb-2" alt="${p.name}">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <div class="fw-semibold">${p.name}</div>
+                <div class="small-muted">$${p.price.toFixed(2)}</div>
+              </div>
+              <div class="text-end">
+                <button class="btn btn-sm btn-outline-dark mb-2" onclick="showProduct(${p.id})">View</button>
+                <button class="btn btn-sm btn-primary" onclick="addToCart(${p.id},1,'M')">Add</button>
+              </div>
+            </div>
+          </div>`;
+        productListEl.appendChild(col);
+      });
+    }
+
+    document.getElementById('filter-cat').addEventListener('change', renderProducts);
+    document.getElementById('price-range').addEventListener('input', renderProducts);
+
+    /*******************************
+     * Product details page
+     *******************************/
+    function showProduct(id){
+      const p = products.find(x=> x.id === id);
+      if(!p) return alert('Product not found');
+      const container = document.getElementById('product-detail-content');
+      container.innerHTML = `
+        <div class="row">
+          <div class="col-md-6">
+            <img src="${p.img}" class="img-fluid rounded" alt="${p.name}">
+          </div>
+          <div class="col-md-6">
+            <h3>${p.name}</h3>
+            <p class="small-muted">$${p.price.toFixed(2)}</p>
+            <p>${p.desc}</p>
+            <div class="mb-2">
+              <label class="form-label small">Size</label>
+              <select id="detail-size" class="form-select w-auto">
+                ${p.sizes.map(s=> `<option value="${s}">${s}</option>`).join('')}
+              </select>
+            </div>
+            <div class="mb-2">
+              <label class="form-label small">Quantity</label>
+              <input id="detail-qty" type="number" min="1" value="1" class="form-control w-25">
+            </div>
+            <div>
+              <button class="btn btn-primary me-2" id="detail-add">Add to Cart</button>
+              <button class="btn btn-outline-secondary" onclick="routeTo('cart')">View Cart</button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById('detail-add').addEventListener('click', ()=>{
+        const size = document.getElementById('detail-size').value;
+        const qty = Math.max(1, Number(document.getElementById('detail-qty').value) || 1);
+        addToCart(p.id, qty, size);
+      });
+      showSection('product-details');
+    }
+
+    /*******************************
+     * Render Cart
+     *******************************/
+    function renderCart(){
+      const cartArea = document.getElementById('cart-area');
+      const cart = getCart();
+      if(cart.length === 0){
+        cartArea.innerHTML = `<p>Your cart is empty. <a href="#" onclick="routeTo('shop')">Shop now</a></p>`;
+        return;
+      }
+      let html = '';
+      cart.forEach((it, idx) => {
+        html += `
+          <div class="card mb-3">
+            <div class="row g-0 align-items-center">
+              <div class="col-3 p-2">
+                <img src="${it.img}" class="w-100 product-thumb" alt="${it.name}">
+              </div>
+              <div class="col-5">
+                <div class="card-body">
+                  <h6 class="card-title mb-1">${it.name}</h6>
+                  <p class="mb-1 small-muted">Size: ${it.size}</p>
+                  <p class="mb-0 small-muted">Price: $${it.price.toFixed(2)}</p>
+                </div>
+              </div>
+              <div class="col-4 text-end pe-4">
+                <div class="d-flex justify-content-end align-items-center gap-2">
+                  <input type="number" min="1" value="${it.qty}" onchange="updateQty(${idx}, this.value)" class="form-control w-25">
+                  <button class="btn btn-sm btn-outline-danger" onclick="removeItem(${idx})">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      const subtotal = cart.reduce((s,i)=> s + i.price * (i.qty||1), 0);
+      html += `<div class="card p-3"><div class="d-flex justify-content-between"><div>Subtotal</div><div><strong>$${subtotal.toFixed(2)}</strong></div></div>
+        <div class="mt-3 text-end">
+          <button class="btn btn-outline-secondary" onclick="routeTo('shop')">Continue Shopping</button>
+          <button class="btn btn-primary ms-2" onclick="routeTo('checkout')">Proceed to Checkout</button>
+        </div></div>`;
+      cartArea.innerHTML = html;
+    }
+
+    function updateQty(index, val){
+      const cart = getCart();
+      const q = Math.max(1, Number(val) || 1);
+      cart[index].qty = q;
+      saveCart(cart);
+      renderCart();
+    }
+    function removeItem(index){
+      if(!confirm('Remove this item?')) return;
+      const cart = getCart();
+      cart.splice(index,1);
+      saveCart(cart);
+      renderCart();
+    }
+
+    /*******************************
+     * Checkout & Order
+     *******************************/
+    function renderOrderSummary(){
+      const area = document.getElementById('order-summary');
+      const cart = getCart();
+      if(!area) return;
+      if(cart.length === 0){ area.innerHTML = '<p>Your cart is empty.</p>'; return; }
+      const lines = cart.map(it => `<div class="d-flex justify-content-between mb-2"><div><small>${it.name} <span class="text-muted">(${it.size} x ${it.qty})</span></small></div><div><small>$${(it.price * it.qty).toFixed(2)}</small></div></div>`).join('');
+      const subtotal = cart.reduce((s,i)=> s + i.price * (i.qty||1), 0);
+      area.innerHTML = `${lines}<hr><div class="d-flex justify-content-between"><strong>Total</strong><strong>$${subtotal.toFixed(2)}</strong></div>`;
+    }
+
+    // toggle card fields
+    document.addEventListener('change', (e)=>{
+      if(e.target && e.target.name === 'payment'){
+        document.getElementById('card-fields').style.display = (e.target.value === 'card') ? 'block' : 'none';
+      }
+    });
+
+    document.getElementById('order-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      placeOrder();
+    });
+
+    function placeOrder(){
+      const name = document.getElementById('cust-name').value.trim();
+      const address = document.getElementById('cust-address').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const payment = document.querySelector('input[name="payment"]:checked').value;
+      if(!name || !address || !phone) return alert('Complete delivery details.');
+
+      if(payment === 'card'){
+        const card = document.getElementById('card-number').value.trim();
+        const exp = document.getElementById('card-exp').value.trim();
+        const cvc = document.getElementById('card-cvc').value.trim();
+        if(!card || !exp || !cvc) return alert('Complete card details (mock).');
+        if(card.replace(/\s/g,'').length < 12) return alert('Invalid card (mock).');
+      }
+
+      const order = {
+        id: 'ORD' + Date.now(),
+        name, address, phone, payment,
+        items: getCart(),
+        total: getCart().reduce((s,i)=> s + i.price * (i.qty||1), 0),
+        date: new Date().toISOString()
+      };
+
+      // store last order in localStorage (mock server)
+      localStorage.setItem('lastOrder', JSON.stringify(order));
+      // clear cart
+      localStorage.removeItem('cart');
+      updateCartCount();
+
+      // show confirmation
+      document.getElementById('order-msg').textContent = `Order ID: ${order.id} • Payment: ${payment === 'cod' ? 'Cash On Delivery' : 'Card (mock)'} • Total: $${order.total.toFixed(2)}`;
+      showSection('order-confirm');
+    }
+
+    /*******************************
+     * Init
+     *******************************/
+    function init(){
+      updateCartCount();
+      renderProducts();
+      showSection('home');
+      // rerender cart when route to cart
+      document.getElementById('nav-cart-btn').addEventListener('click', (e)=>{ e.preventDefault(); routeTo('cart'); renderCart(); });
+      // make sure when showing checkout we render summary
+      // intercept routeTo to render summary when needed
+      const originalRouteTo = routeTo;
+      routeTo = function(target){
+        originalRouteTo(target);
+        if(target === 'shop') renderProducts();
+        if(target === 'cart') renderCart();
+        if(target === 'checkout'){ renderOrderSummary(); showSection('checkout'); }
+      };
+    }
+
+    init();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
